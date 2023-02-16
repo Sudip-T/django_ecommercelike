@@ -1,0 +1,26 @@
+{% extends 'ecom_app/main.html' %}
+{% load static %}
+
+
+{% block title %} Single Product {% endblock title %}
+
+
+{% block content %}
+<div class="container">
+    <div class="single-product">
+        <div class="single-wrapper flex">
+            <div class="col-45">
+                <div class="col-45-img">
+                    <img src="{{data.image.url}}" alt="{{data.title}}">
+                </div>
+            </div>
+            <div class="col-55">
+                <h2>{{data.name}}</h2>
+                <h4 style="display: inline-block;"><strong><span>{{data.price|floatformat:0}}</span>$</strong></h4>
+                <div>{{data.category}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

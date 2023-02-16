@@ -1,0 +1,24 @@
+{% extends 'ecom_app/main.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+
+{% block title %} Home {% endblock title %}
+
+
+{% block content %}
+
+<div class="row mb-col-80">
+    {% for product in data %}
+    <div class="col-lg-3 mb-col-t5">
+        <a href=""><img src="{{product.image.url}}" alt="" class="thumbnail"></a>
+        <div class="box-element product">
+            <h4 style="display: inline-block;"><strong><span>{{product.price|floatformat:0}}</span>$</strong></h4>
+            <h6><strong>{{product.name}}</strong></h6>
+            <span>Location</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

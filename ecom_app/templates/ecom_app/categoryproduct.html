@@ -1,0 +1,26 @@
+{% extends 'ecom_app/main.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+<div class="mb-product-items">
+    <div class="mb-product-row">
+        {% for product in products %}
+        <div class="mb-productcol">
+            <div class="mb-product-wrap">
+                <div class="mb-product-img">
+                    <a href="{% url 'singleproduct' id=product.id %}"><img src="{{product.image.url}}" alt=""
+                            class="thumbnail"></a>
+                </div>
+                <div class="mb-product-details">
+                    <div class="mb-pl-price">{{product.price|floatformat:0}} $</div>
+                    <h5>{{product.name}}</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <title>{% block title %} Base {% endblock title %}</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-flex flex">
+            <div class="mb-col-33"><a href="{% url 'home' %}">Joysale</a></div>
+            <div class="mb-col-33">
+                <form action="/search">
+                    <div class="search-bar">
+                        <div class="input-group">
+                            <input type="text" id="searchproducts" class="form-control" placeholder="Search Products"
+                                name="search">
+                            <button class="input-group-text" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="mb-col-33">
+                <div class="mb-col-33">
+                    <a href="{% url 'login' %}">Log In</a>
+                    <a href="{% url 'signup' %}">Sign Up</a>
+                    <a href="{% url 'login' %}">SELL</a>
+                </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <ul class="navbar-nav mr-auto mb-nav-ul">
+                <li><a href="{% url 'home' %}">All Products</a></li>
+                <li><a href="{% url 'category_products' id=6 %}">furniture</a></li>
+                <li><a href="{% url 'category_products' id=5 %}">electronics & appliances</a></li>
+                <li><a href="{% url 'category_products' id=2 %}">fashion</a></li>
+                <li><a href="{% url 'category_products' id=4 %}">property</a></li>
+                <li><a href="{% url 'category_products' id=3 %}">two wheelers</a></li>
+                <li><a href="{% url 'category_products' id=1 %}">Car</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %} {% endblock content %}
+    <footer>
+        <div class="container">
+            <div class="mb-footer-wrapper">
+                <div class="mb-footer-full mb-ff-top">
+                    <div class="mb-col-25">
+                        <p>Happy shopping with Joysale</p>
+                        <div class="social-img">
+                            <a href="https://twitter.com/" target="_blank" style="margin-right: 15px;"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="https://www.google.com/" target="_blank"><i class="fa-brands fa-google"></i></a>
+                        </div>
+                    </div>
+                    <div class="mb-col-25">
+                        <p>Download Apps using this link</p>
+                        <a href="https://apps.apple.com/us/app/joysale/id1078268802" style="margin-right: 15px;" target="_blank"><i class="fa-brands fa-apple"></i></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.hitasoft.app.joysale&hl=en_IN&pli=1" target="_blank"><i class="fa-brands fa-android"></i></a>
+                    </div>
+                    <div class="mb-col-25">
+                        <p>Promoting your brands under a banner section to reach more traffic among users</p>
+                    </div>
+                    <div class="mb-col-25">
+                        <a href="{% url 'advertisment' %}">banner advertise</a>
+                    </div>
+                </div>
+                <div class="mb-footer-full mb-ff-bottom">
+                    <div class="mb-col-50">
+                        <ul>
+                            <li><a href="{% url 'terms' %}">Terms and Policy</a></li>
+                            <li><a href="{% url 'safety' %}">Saftey Tips</a></li>
+                            <li><a href="{% url 'reach' %}">Reach</a></li>
+                            <li><a href="{% url 'userhelp' %}">User Help</a></li>
+                        </ul>
+                        <p>© Copyright 2023 Appkodes.com Limited. All rights reserved</p>
+                    </div>
+                    <div class="mb-col-50" style="display: flex;align-items: center;">
+                        <p style="margin-right: 10px;">language :</p>
+                        <select name="language" id="">
+                            <option value="English">English</option>
+                            <option value="French">French</option>
+                            <option value="Arabic">Arabic</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        
+        ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        
+        ></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.6.1/scripts/jquery.ajaxy.min.js" integrity="sha512-bztGAvCE/3+a1Oh0gUro7BHukf6v7zpzrAb3ReWAVrt+bVNNphcl2tDTKCBr5zk7iEDmQ2Bv401fX3jeVXGIcA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        jQuery(document).ready(function() {    
+            console.log ("ready");
+        });  
+        jQuery(function () {
+            var availableTags = [];
+            jQuery.ajax({
+                method: 'GET',
+                url: "/searchlist",
+                success: function (response) {
+                    console.log(response)
+                    startAutocomplete(response)
+                }
+            });
+            function startAutocomplete(availableTags) {
+                jQuery("#searchproducts").autocomplete({
+                    source: availableTags
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
